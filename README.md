@@ -1,3 +1,14 @@
+## Changes in this fork
+Support for custom `adduqb` instruction.
+
+|Usage|Result|Description|
+|---|---|---|
+|adduqb t1, t2, t3 | t1<sub>[31:24]</sub> ← t2<sub>[31:24]</sub> + t3<sub>[31:24]</sub> <br> t1<sub>[23:16]</sub> ← t2<sub>[23:16]</sub> + t3<sub>[23:16]</sub> <br> t1<sub>[15:8]</sub> ← t2<sub>[15:8]</sub> + t3<sub>[15:8]</sub> <br>t1<sub>[7:0]</sub> ← t2<sub>[7:0]</sub> + t3<sub>[7:0]</sub>  |Add packed byte integers from t2 and t3 to t1. Ignore carry if bytes overflow.|
+
+It is also now possible to run `build-jar.sh` and `test.sh` with MinGW and Cygwin.
+
+
+
 RARS -- RISC-V Assembler and Runtime Simulator
 ----------------------------------------------
 
