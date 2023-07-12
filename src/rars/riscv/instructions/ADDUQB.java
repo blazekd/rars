@@ -37,7 +37,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 public class ADDUQB extends BasicInstruction {
     public ADDUQB() {
         super("adduqb t1,t2,t3", "Add packed byte integers from t2 and t3 to t1. Ignore carry if bytes overflow. ", BasicInstructionFormat.R_FORMAT,
-                "0000000 ttttt sssss 000 fffff 0010011");
+                "0000000 ttttt sssss 000 fffff 0001011");
     }
 
 
