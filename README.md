@@ -1,11 +1,27 @@
-## Changes in this fork
+## Main change in this fork
 Support for custom `adduqb` instruction.
 
-|Usage|Result|Description|
-|---|---|---|
-|adduqb t1, t2, t3 | t1<sub>[31:24]</sub> ← t2<sub>[31:24]</sub> + t3<sub>[31:24]</sub> <br> t1<sub>[23:16]</sub> ← t2<sub>[23:16]</sub> + t3<sub>[23:16]</sub> <br> t1<sub>[15:8]</sub> ← t2<sub>[15:8]</sub> + t3<sub>[15:8]</sub> <br>t1<sub>[7:0]</sub> ← t2<sub>[7:0]</sub> + t3<sub>[7:0]</sub>  |<div style="max-width:200px">Add packed byte integers from t2 and t3 to t1. Ignore carry if bytes overflow.</div>|
+|Usage|Result|<div style="width:100px">Description</div>|
+|---|----|-------|
+|adduqb t1, t2, t3 | t1<sub>[31:24]</sub> ← t2<sub>[31:24]</sub> + t3<sub>[31:24]</sub> <br> t1<sub>[23:16]</sub> ← t2<sub>[23:16]</sub> + t3<sub>[23:16]</sub> <br> t1<sub>[15:8]</sub> ← t2<sub>[15:8]</sub> + t3<sub>[15:8]</sub> <br>t1<sub>[7:0]</sub> ← t2<sub>[7:0]</sub> + t3<sub>[7:0]</sub>  |Add packed byte integers from t2 and t3 to t1. <br>Ignore carry if bytes overflow.|
+
+
+
+#### Bit representation of ADDUQB
+
+`adduqb rd, rs1, rs2` uses R-type instruction format and its bit equivalent look like this:
+|funct7|rs2|rs1|funct3|rd|opcode|
+|-------|---|---|---|--|-------|
+|0000000|rs2|rs1|000|rd|0001011|
+
+
+`rd`, `rs1` and `rs2` are 5-bit encoding of registers (https://en.wikichip.org/wiki/risc-v/registers).
+`rs1` and `rs2` are source registers and `rd` is destination register
+
+### Another changes
 
 It is also now possible to run `build-jar.sh` and `test.sh` with MinGW and Cygwin.
+
 
 
 
